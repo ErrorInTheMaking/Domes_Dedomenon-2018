@@ -4,9 +4,8 @@
 #define StackLimit 5
 #define ArrayLimit 10
 
+typedef int StackElementType;   
 
-typedef int StackElementType;   // ď ôŕđď÷ ôöî óôďéřĺÝöî  ôč÷ óôďÝâá÷
-                                //ĺîäĺéëôéëŔ ôŕđď÷ int
 typedef struct  {
     int Top1;
     int Top2;
@@ -68,12 +67,9 @@ int main(int argc, char* argv[])
 }
 
 void CreateStack(StackType *Stack, int stackNum)
-/* ¤ĺéôďůňçÝá: ˘číéďůňçĺÝ íéá ëĺîÜ óôďÝâá.
-   śđéóôňŰćĺé: şĺîÜ ŞôďÝâá.*
-*/
 {
    // printf("Dose ton arithmo tis stoivas:<1 h 2>");
-   // scanf("%d", stackNum);
+   // scanf("%d", &stackNum);
 
 	if(stackNum == 1)
 		Stack -> Top1 = -1;
@@ -82,66 +78,48 @@ void CreateStack(StackType *Stack, int stackNum)
 }
 
 boolean EmptyStack(StackType Stack, int stackNum)
-/* ˘Űřĺôáé: ťéá óôďÝâá Stack.
-   ¤ĺéôďůňçÝá: śěŰçřĺé áî č óôďÝâá Stack ĺÝîáé ëĺîÜ.
-   śđéóôňŰćĺé: True áî č Stack ĺÝîáé ëĺîÜ, False äéáćďňĺôéëŔ
-*/
 {
 	//printf("Dose ton arithmo tis stoivas gia na deis an einai adeia:<1 h 2>");
-	//scanf("%d", stackNum);
+	//scanf("%d", &stackNum);
 
 	if(stackNum ==1) return (Stack.Top1 == -1);
 	else 		 return (Stack.Top2 == ArrayLimit);
 }
 
 boolean FullStack(StackType Stack)
-/* ˘Űřĺôáé: ťéá óôďÝâá Stack.
-   ¤ĺéôďůňçÝá: śěŰçřĺé áî č óôďÝâá Stack ĺÝîáé çĺíŔôč.
-   śđéóôňŰćĺé: True áî č Stack ĺÝîáé çĺíŔôč, False äéáćďňĺôéëŔ
-*/
 {
     return (Stack.Top1 - ArrayLimit - Stack.Top2 == ArrayLimit -1);
 }
 
 void Push(StackType *Stack, StackElementType Item, int stackNum)
-/* ˘Űřĺôáé: ťéá óôďÝâá Stack ëáé Űîá óôďéřĺÝď Item.
-   ¤ĺéôďůňçÝá: śéóŔçĺé ôď óôďéřĺÝď Item óôčî óôďÝâá Stack áî č Stack äĺî ĺÝîáé çĺíŔôč.
-   śđéóôňŰćĺé: Ćčî ôňďđďđďéčíŰîč Stack.
-   Îęďäď÷: ťÜîůíá çĺíŔôč÷ óôďÝâá÷, áî č óôďÝâá Stack ĺÝîáé çĺíŔôč
-*/
 {
-
 	//printf("Dose ton arithmo tis stoivas:<1 h 2>");
-	//scanf("%d", stackNum)
+	//scanf("%d", &stackNum)
+	
 	if(stackNum==1){
 
 		if (Stack -> Top1 != Stack -> Top2 - 1) {
 	            Stack -> Top1++;
 	            Stack -> Element[Stack -> Top1] = Item;
-	    }   else
+		}else
 	    	    printf("\nStack 1 is Full!\n");
 	    }
-	     else{
+	    else{
 
 		if(Stack -> Top2 != Stack -> Top1 + 1  ){
 	       	    Stack-> Top2--;
 	            Stack -> Element[Stack -> Top2] = Item;
-            }else
-                    printf("Stack 2 is Full!\n");
+        }else
+                printf("Stack 2 is Full!\n");
 	}
 }
 
 
 void Pop(StackType *Stack, StackElementType *Item,  int stackNum)
-/* ˘Űřĺôáé: ťéá óôďÝâá Stack.
-   ¤ĺéôďůňçÝá: ˘éáçňŔćĺé ôď óôďéřĺÝď Item áđŢ ôčî ëďňůćÜ ôč÷ ŞôďÝâá÷ áî č ŞôďÝâá äĺî ĺÝîáé ëĺîÜ.
-   śđéóôňŰćĺé: Ćď óôďéřĺÝď Item ëáé ôčî ôňďđďđďéčíŰîč Stack.
-   Îęďäď÷:  ťÜîůíá ëĺîÜ÷ óôďÝâá÷ áî č Stack ĺÝîáé ëĺîÜ
-*/
 {
 
 	//printf("Dose ton arithmo tis stoivas:<1 h 2>");
-	//scanf("%d", stackNum);
+	//scanf("%d", &stackNum);
 
 	if(stackNum==1){
 
