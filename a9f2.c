@@ -5,11 +5,11 @@
 #define ArrayLimit 10
 
 
-typedef int StackElementType;   // ο τΰποχ τφξ στοιψεέφξ  τθχ στοέβαχ
-                                //εξδειλτιλΐ τΰποχ int
+typedef int StackElementType;   // Δ Γ΄Ε•Δ‘ΔΓ· Γ΄Γ¶Γ® Γ³Γ΄ΔΓ©Ε™ΔΊΓΓ¶Γ®  Γ΄ΔΓ· Γ³Γ΄ΔΓΓΆΓ΅Γ·
+                                //ΔΊΓ®Γ¤ΔΊΓ©Γ«Γ΄Γ©Γ«Ε” Γ΄Ε•Δ‘ΔΓ· int
 typedef struct  {
     int Top1;
-	int Top2;
+    int Top2;
     StackElementType Element[ArrayLimit];
 } StackType;
 
@@ -64,12 +64,12 @@ int main(int argc, char* argv[])
     //diasxisi pinaka
 	TraverseStack(stack);
 
-    return 0;
+    	return 0;
 }
 
 void CreateStack(StackType *Stack, int stackNum)
-/* ¤ειτοωςηέα: Άθνιοωςηεέ νια λεξά στοέβα.
-   ¶πιστςΫζει: Ίεξά ªτοέβα.*
+/* Β¤ΔΊΓ©Γ΄ΔΕ―ΕΓ§ΓΓ΅: ΛΔΓ­Γ©ΔΕ―ΕΓ§ΔΊΓ Γ­Γ©Γ΅ Γ«ΔΊΓ®Γ Γ³Γ΄ΔΓΓΆΓ΅.
+   Ε›Δ‘Γ©Γ³Γ΄ΕΕ°Δ‡ΔΊΓ©: ΕΔΊΓ®Γ ΕΓ΄ΔΓΓΆΓ΅.*
 */
 {
    // printf("Dose ton arithmo tis stoivas:<1 h 2>");
@@ -82,32 +82,32 @@ void CreateStack(StackType *Stack, int stackNum)
 }
 
 boolean EmptyStack(StackType Stack, int stackNum)
-/* ΆΫψεται: »ια στοέβα Stack.
-   ¤ειτοωςηέα: ¶μΫηψει αξ θ στοέβα Stack εέξαι λεξά.
-   ¶πιστςΫζει: True αξ θ Stack εέξαι λεξά, False διαζοςετιλΐ
+/* ΛΕ°Ε™ΔΊΓ΄Γ΅Γ©: Ε¥Γ©Γ΅ Γ³Γ΄ΔΓΓΆΓ΅ Stack.
+   Β¤ΔΊΓ©Γ΄ΔΕ―ΕΓ§ΓΓ΅: Ε›Δ›Ε°Γ§Ε™ΔΊΓ© Γ΅Γ® Δ Γ³Γ΄ΔΓΓΆΓ΅ Stack ΔΊΓΓ®Γ΅Γ© Γ«ΔΊΓ®Γ.
+   Ε›Δ‘Γ©Γ³Γ΄ΕΕ°Δ‡ΔΊΓ©: True Γ΅Γ® Δ Stack ΔΊΓΓ®Γ΅Γ© Γ«ΔΊΓ®Γ, False Γ¤Γ©Γ΅Δ‡ΔΕΔΊΓ΄Γ©Γ«Ε”
 */
 {
 	//printf("Dose ton arithmo tis stoivas gia na deis an einai adeia:<1 h 2>");
 	//scanf("%d", stackNum);
 
 	if(stackNum ==1) return (Stack.Top1 == -1);
-	else 			 return (Stack.Top2 == ArrayLimit);
+	else 		 return (Stack.Top2 == ArrayLimit);
 }
 
 boolean FullStack(StackType Stack)
-/* ΆΫψεται: »ια στοέβα Stack.
-   ¤ειτοωςηέα: ¶μΫηψει αξ θ στοέβα Stack εέξαι ηενΐτθ.
-   ¶πιστςΫζει: True αξ θ Stack εέξαι ηενΐτθ, False διαζοςετιλΐ
+/* ΛΕ°Ε™ΔΊΓ΄Γ΅Γ©: Ε¥Γ©Γ΅ Γ³Γ΄ΔΓΓΆΓ΅ Stack.
+   Β¤ΔΊΓ©Γ΄ΔΕ―ΕΓ§ΓΓ΅: Ε›Δ›Ε°Γ§Ε™ΔΊΓ© Γ΅Γ® Δ Γ³Γ΄ΔΓΓΆΓ΅ Stack ΔΊΓΓ®Γ΅Γ© Γ§ΔΊΓ­Ε”Γ΄Δ.
+   Ε›Δ‘Γ©Γ³Γ΄ΕΕ°Δ‡ΔΊΓ©: True Γ΅Γ® Δ Stack ΔΊΓΓ®Γ΅Γ© Γ§ΔΊΓ­Ε”Γ΄Δ, False Γ¤Γ©Γ΅Δ‡ΔΕΔΊΓ΄Γ©Γ«Ε”
 */
 {
-    return (Stack.Top1 == Stack.Top2);
+    return (Stack.Top1 - ArrayLimit - Stack.Top2 == ArrayLimit -1);
 }
 
 void Push(StackType *Stack, StackElementType Item, int stackNum)
-/* ΆΫψεται: »ια στοέβα Stack λαι Ϋξα στοιψεέο Item.
-   ¤ειτοωςηέα: ¶ισΐηει το στοιψεέο Item στθξ στοέβα Stack αξ θ Stack δεξ εέξαι ηενΐτθ.
-   ¶πιστςΫζει: Ζθξ τςοποποιθνΫξθ Stack.
-   Ξκοδοχ: »άξωνα ηενΐτθχ στοέβαχ, αξ θ στοέβα Stack εέξαι ηενΐτθ
+/* ΛΕ°Ε™ΔΊΓ΄Γ΅Γ©: Ε¥Γ©Γ΅ Γ³Γ΄ΔΓΓΆΓ΅ Stack Γ«Γ΅Γ© Ε°Γ®Γ΅ Γ³Γ΄ΔΓ©Ε™ΔΊΓΔ Item.
+   Β¤ΔΊΓ©Γ΄ΔΕ―ΕΓ§ΓΓ΅: Ε›Γ©Γ³Ε”Γ§ΔΊΓ© Γ΄Δ Γ³Γ΄ΔΓ©Ε™ΔΊΓΔ Item Γ³Γ΄ΔΓ® Γ³Γ΄ΔΓΓΆΓ΅ Stack Γ΅Γ® Δ Stack Γ¤ΔΊΓ® ΔΊΓΓ®Γ΅Γ© Γ§ΔΊΓ­Ε”Γ΄Δ.
+   Ε›Δ‘Γ©Γ³Γ΄ΕΕ°Δ‡ΔΊΓ©: Δ†ΔΓ® Γ΄ΕΔΔ‘ΔΔ‘ΔΓ©ΔΓ­Ε°Γ®Δ Stack.
+   ΓΔ™ΔΓ¤ΔΓ·: Ε¥ΓΓ®Ε―Γ­Γ΅ Γ§ΔΊΓ­Ε”Γ΄ΔΓ· Γ³Γ΄ΔΓΓΆΓ΅Γ·, Γ΅Γ® Δ Γ³Γ΄ΔΓΓΆΓ΅ Stack ΔΊΓΓ®Γ΅Γ© Γ§ΔΊΓ­Ε”Γ΄Δ
 */
 {
 
@@ -116,27 +116,27 @@ void Push(StackType *Stack, StackElementType Item, int stackNum)
 	if(stackNum==1){
 
 		if (Stack -> Top1 != Stack -> Top2 - 1) {
-	        Stack -> Top1++;
-	        Stack -> Element[Stack -> Top1] = Item;
-	    } else
-	    	printf("\nStack 1 is Full!\n");
-		}
-	    else{
+	            Stack -> Top1++;
+	            Stack -> Element[Stack -> Top1] = Item;
+	    }   else
+	    	    printf("\nStack 1 is Full!\n");
+	    }
+	     else{
 
-			if(Stack -> Top2 != Stack -> Top1 + 1  ){
-			 	Stack-> Top2--;
-	         	Stack -> Element[Stack -> Top2] = Item;
-       }    else
-                printf("Stack 2 is Full!\n");
+		if(Stack -> Top2 != Stack -> Top1 + 1  ){
+	       	    Stack-> Top2--;
+	            Stack -> Element[Stack -> Top2] = Item;
+            }else
+                    printf("Stack 2 is Full!\n");
 	}
 }
 
 
 void Pop(StackType *Stack, StackElementType *Item,  int stackNum)
-/* ΆΫψεται: »ια στοέβα Stack.
-   ¤ειτοωςηέα: Άιαηςΐζει το στοιψεέο Item απή τθξ λοςωζά τθχ ªτοέβαχ αξ θ ªτοέβα δεξ εέξαι λεξά.
-   ¶πιστςΫζει: Ζο στοιψεέο Item λαι τθξ τςοποποιθνΫξθ Stack.
-   Ξκοδοχ:  »άξωνα λεξάχ στοέβαχ αξ θ Stack εέξαι λεξά
+/* ΛΕ°Ε™ΔΊΓ΄Γ΅Γ©: Ε¥Γ©Γ΅ Γ³Γ΄ΔΓΓΆΓ΅ Stack.
+   Β¤ΔΊΓ©Γ΄ΔΕ―ΕΓ§ΓΓ΅: ΛΓ©Γ΅Γ§ΕΕ”Δ‡ΔΊΓ© Γ΄Δ Γ³Γ΄ΔΓ©Ε™ΔΊΓΔ Item Γ΅Δ‘ΕΆ Γ΄ΔΓ® Γ«ΔΕΕ―Δ‡Γ Γ΄ΔΓ· ΕΓ΄ΔΓΓΆΓ΅Γ· Γ΅Γ® Δ ΕΓ΄ΔΓΓΆΓ΅ Γ¤ΔΊΓ® ΔΊΓΓ®Γ΅Γ© Γ«ΔΊΓ®Γ.
+   Ε›Δ‘Γ©Γ³Γ΄ΕΕ°Δ‡ΔΊΓ©: Δ†Δ Γ³Γ΄ΔΓ©Ε™ΔΊΓΔ Item Γ«Γ΅Γ© Γ΄ΔΓ® Γ΄ΕΔΔ‘ΔΔ‘ΔΓ©ΔΓ­Ε°Γ®Δ Stack.
+   ΓΔ™ΔΓ¤ΔΓ·:  Ε¥ΓΓ®Ε―Γ­Γ΅ Γ«ΔΊΓ®ΓΓ· Γ³Γ΄ΔΓΓΆΓ΅Γ· Γ΅Γ® Δ Stack ΔΊΓΓ®Γ΅Γ© Γ«ΔΊΓ®Γ
 */
 {
 
