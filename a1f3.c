@@ -5,9 +5,9 @@
 
 #define MaxA 19
 
-typedef int QueueElementType;           /*ο τΰποχ τφξ στοιψεέφξ τθχ σωξδεδενΫξθχ οωςΐχ
-                                        εξδειλτιλΐ τΰποω int*/
-    typedef struct QueueNode *QueuePointer;
+typedef int QueueElementType;           /*Γ― Γ΄Γ Γ°Γ―Γ· Γ΄Γ¶Γ® Γ³Γ΄Γ―Γ©ΓΈΓ¥ΓΓ¶Γ® Γ΄Γ¨Γ· Γ³ΓΉΓ®Γ¤Γ¥Γ¤Γ¥Γ­Γ›Γ®Γ¨Γ· Γ―ΓΉΓ²Γ€Γ·
+                                        Γ¥Γ®Γ¤Γ¥Γ©Γ«Γ΄Γ©Γ«Γ€ Γ΄Γ Γ°Γ―ΓΉ int*/
+typedef struct QueueNode *QueuePointer;
 
 typedef struct QueueNode
 {
@@ -91,10 +91,7 @@ int main()
      sizeA = QSizeA(&AQueue);
      printf("<QSizeA> size of queue %d\n", sizeA);
 
-
-
-
-	return 0;
+	 return 0;
 }
 int QSizeA(QueueType *Queue)
 {
@@ -118,7 +115,7 @@ int QSizeA(QueueType *Queue)
    return size;
 
 }
-int QSizeB(QueueType *Queue)
+/*int QSizeB(QueueType *Queue)
 {
     int size=0;
     QueuePointer p;
@@ -129,6 +126,7 @@ int QSizeB(QueueType *Queue)
 
 
 }
+*/
 void TraverseQ(QueueType Queue)
 {
 	QueuePointer CurrPtr;
@@ -139,7 +137,7 @@ void TraverseQ(QueueType Queue)
     }
    else
    {
-   	    CurrPtr = Queue.Front;
+   		 CurrPtr = Queue.Front;
          while ( CurrPtr!=NULL )
         {
       	     printf("%d ", CurrPtr->Data);
@@ -150,8 +148,8 @@ void TraverseQ(QueueType Queue)
 }
 
 void CreateQ(QueueType *Queue)
-/* ¤ειτοωςηέα: Άθνιοωςηεέ νια λεξά σωξδεδενΫξθ οωςΐ.
-   ¶πιστςΫζει: »ια λεξά σωξδεδενΫξθ οωςΐ
+/* Β¤Γ¥Γ©Γ΄Γ―ΓΉΓ²Γ§ΓΓ΅: ΒΆΓ¨Γ­Γ©Γ―ΓΉΓ²Γ§Γ¥Γ Γ­Γ©Γ΅ Γ«Γ¥Γ®Γ Γ³ΓΉΓ®Γ¤Γ¥Γ¤Γ¥Γ­Γ›Γ®Γ¨ Γ―ΓΉΓ²Γ€.
+   Β¶Γ°Γ©Γ³Γ΄Γ²Γ›Γ¦Γ¥Γ©: Β»Γ©Γ΅ Γ«Γ¥Γ®Γ Γ³ΓΉΓ®Γ¤Γ¥Γ¤Γ¥Γ­Γ›Γ®Γ¨ Γ―ΓΉΓ²Γ€
 */
 {
 	Queue->Front = NULL;
@@ -159,18 +157,18 @@ void CreateQ(QueueType *Queue)
 }
 
 boolean EmptyQ(QueueType Queue)
-/* ΆΫψεται:    »ια σωξδεδενΫξθ οωςΐ.
-   ¤ειτοωςηέα: ¶μΫηψει αξ θ σωξδεδενΫξθ οωςΐ εέξαι λεξά.
-   ¶πιστςΫζει: True αξ θ οωςΐ εέξαι λεξά, false  διαζοςετιλΐ
+/* ΒΆΓ›ΓΈΓ¥Γ΄Γ΅Γ©:    Β»Γ©Γ΅ Γ³ΓΉΓ®Γ¤Γ¥Γ¤Γ¥Γ­Γ›Γ®Γ¨ Γ―ΓΉΓ²Γ€.
+   Β¤Γ¥Γ©Γ΄Γ―ΓΉΓ²Γ§ΓΓ΅: Β¶Γ¬Γ›Γ§ΓΈΓ¥Γ© Γ΅Γ® Γ¨ Γ³ΓΉΓ®Γ¤Γ¥Γ¤Γ¥Γ­Γ›Γ®Γ¨ Γ―ΓΉΓ²Γ€ Γ¥ΓΓ®Γ΅Γ© Γ«Γ¥Γ®Γ.
+   Β¶Γ°Γ©Γ³Γ΄Γ²Γ›Γ¦Γ¥Γ©: True Γ΅Γ® Γ¨ Γ―ΓΉΓ²Γ€ Γ¥ΓΓ®Γ΅Γ© Γ«Γ¥Γ®Γ, false  Γ¤Γ©Γ΅Γ¦Γ―Γ²Γ¥Γ΄Γ©Γ«Γ€
 */
 {
 	return (Queue.Front==NULL);
 }
 
 void AddQ(QueueType *Queue, QueueElementType Item)
-/* ΆΫψεται:    »ια σωξδεδενΫξθ οωςΐ Queue λαι Ϋξα  στοιψεέο Item.
-   ¤ειτοωςηέα: ¦ςοσυΫτει το στοιψεέο Item στο τΫμοχ τθχ σωξδεδενΫξθχ οωςΐχ Queue.
-   ¶πιστςΫζει: Ζθξ τςοποποιθνΫξθ οωςΐ
+/* ΒΆΓ›ΓΈΓ¥Γ΄Γ΅Γ©:    Β»Γ©Γ΅ Γ³ΓΉΓ®Γ¤Γ¥Γ¤Γ¥Γ­Γ›Γ®Γ¨ Γ―ΓΉΓ²Γ€ Queue Γ«Γ΅Γ© Γ›Γ®Γ΅  Γ³Γ΄Γ―Γ©ΓΈΓ¥ΓΓ― Item.
+   Β¤Γ¥Γ©Γ΄Γ―ΓΉΓ²Γ§ΓΓ΅: Β¦Γ²Γ―Γ³ΓµΓ›Γ΄Γ¥Γ© Γ΄Γ― Γ³Γ΄Γ―Γ©ΓΈΓ¥ΓΓ― Item Γ³Γ΄Γ― Γ΄Γ›Γ¬Γ―Γ· Γ΄Γ¨Γ· Γ³ΓΉΓ®Γ¤Γ¥Γ¤Γ¥Γ­Γ›Γ®Γ¨Γ· Γ―ΓΉΓ²Γ€Γ· Queue.
+   Β¶Γ°Γ©Γ³Γ΄Γ²Γ›Γ¦Γ¥Γ©: Γ†Γ¨Γ® Γ΄Γ²Γ―Γ°Γ―Γ°Γ―Γ©Γ¨Γ­Γ›Γ®Γ¨ Γ―ΓΉΓ²Γ€
 */
 {
 	QueuePointer TempPtr;
@@ -186,11 +184,11 @@ void AddQ(QueueType *Queue, QueueElementType Item)
 }
 
 void RemoveQ(QueueType *Queue, QueueElementType *Item)
-/* ΆΫψεται:    »ια σωξδεδενΫξθ οωςΐ.
-   ¤ειτοωςηέα: °ζαιςεέ το στοιψεέο Item απή τθξ  λοςωζά τθχ σωξδεδενΫξθχ οωςΐχ,
-                αξ δεξ εέξαι  λεξά.
-   ¶πιστςΫζει: Ζο στοιψεέο Item λαι τθξ τςοποποιθνΫξθ σωξδεδενΫξθ οωςΐ.
-   Ξκοδοχ:     »άξωνα λεξάχ οωςΐχ, αξ θ οωςΐ εέξαι  λεξά
+/* ΒΆΓ›ΓΈΓ¥Γ΄Γ΅Γ©:    Β»Γ©Γ΅ Γ³ΓΉΓ®Γ¤Γ¥Γ¤Γ¥Γ­Γ›Γ®Γ¨ Γ―ΓΉΓ²Γ€.
+   Β¤Γ¥Γ©Γ΄Γ―ΓΉΓ²Γ§ΓΓ΅: Β°Γ¦Γ΅Γ©Γ²Γ¥Γ Γ΄Γ― Γ³Γ΄Γ―Γ©ΓΈΓ¥ΓΓ― Item Γ΅Γ°Γ Γ΄Γ¨Γ®  Γ«Γ―Γ²ΓΉΓ¦Γ Γ΄Γ¨Γ· Γ³ΓΉΓ®Γ¤Γ¥Γ¤Γ¥Γ­Γ›Γ®Γ¨Γ· Γ―ΓΉΓ²Γ€Γ·,
+                Γ΅Γ® Γ¤Γ¥Γ® Γ¥ΓΓ®Γ΅Γ©  Γ«Γ¥Γ®Γ.
+   Β¶Γ°Γ©Γ³Γ΄Γ²Γ›Γ¦Γ¥Γ©: Γ†Γ― Γ³Γ΄Γ―Γ©ΓΈΓ¥ΓΓ― Item Γ«Γ΅Γ© Γ΄Γ¨Γ® Γ΄Γ²Γ―Γ°Γ―Γ°Γ―Γ©Γ¨Γ­Γ›Γ®Γ¨ Γ³ΓΉΓ®Γ¤Γ¥Γ¤Γ¥Γ­Γ›Γ®Γ¨ Γ―ΓΉΓ²Γ€.
+   ΓΓªΓ―Γ¤Γ―Γ·:     Β»ΓΓ®ΓΉΓ­Γ΅ Γ«Γ¥Γ®ΓΓ· Γ―ΓΉΓ²Γ€Γ·, Γ΅Γ® Γ¨ Γ―ΓΉΓ²Γ€ Γ¥ΓΓ®Γ΅Γ©  Γ«Γ¥Γ®Γ
 */
 {
     QueuePointer TempPtr;
