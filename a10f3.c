@@ -11,7 +11,7 @@ typedef struct QueueNode *QueuePointer;
 
 typedef struct QueueNode
 {
-	QueueElementType Data;
+    QueueElementType Data;
     QueuePointer Next;
 } QueueNode;
 
