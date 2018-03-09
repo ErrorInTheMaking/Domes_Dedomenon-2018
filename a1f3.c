@@ -5,8 +5,8 @@
 
 #define MaxA 19
 
-typedef int QueueElementType;           /*ï ôàðï÷ ôöî óôïéøåÝöî ôè÷ óùîäåäåíÛîè÷ ïùòÀ÷
-                                        åîäåéëôéëÀ ôàðïù int*/
+typedef int QueueElementType;           
+
 typedef struct QueueNode *QueuePointer;
 
 typedef struct QueueNode
@@ -148,28 +148,19 @@ void TraverseQ(QueueType Queue)
 }
 
 void CreateQ(QueueType *Queue)
-/* ¤åéôïùòçÝá: ¢èíéïùòçåÝ íéá ëåîÜ óùîäåäåíÛîè ïùòÀ.
-   ¶ðéóôòÛæåé: »éá ëåîÜ óùîäåäåíÛîè ïùòÀ
-*/
+
 {
 	Queue->Front = NULL;
 	Queue->Rear = NULL;
 }
 
 boolean EmptyQ(QueueType Queue)
-/* ¢Ûøåôáé:    »éá óùîäåäåíÛîè ïùòÀ.
-   ¤åéôïùòçÝá: ¶ìÛçøåé áî è óùîäåäåíÛîè ïùòÀ åÝîáé ëåîÜ.
-   ¶ðéóôòÛæåé: True áî è ïùòÀ åÝîáé ëåîÜ, false  äéáæïòåôéëÀ
-*/
 {
 	return (Queue.Front==NULL);
 }
 
 void AddQ(QueueType *Queue, QueueElementType Item)
-/* ¢Ûøåôáé:    »éá óùîäåäåíÛîè ïùòÀ Queue ëáé Ûîá  óôïéøåÝï Item.
-   ¤åéôïùòçÝá: ¦òïóõÛôåé ôï óôïéøåÝï Item óôï ôÛìï÷ ôè÷ óùîäåäåíÛîè÷ ïùòÀ÷ Queue.
-   ¶ðéóôòÛæåé: Æèî ôòïðïðïéèíÛîè ïùòÀ
-*/
+
 {
 	QueuePointer TempPtr;
 
@@ -184,12 +175,7 @@ void AddQ(QueueType *Queue, QueueElementType Item)
 }
 
 void RemoveQ(QueueType *Queue, QueueElementType *Item)
-/* ¢Ûøåôáé:    »éá óùîäåäåíÛîè ïùòÀ.
-   ¤åéôïùòçÝá: °æáéòåÝ ôï óôïéøåÝï Item áðÞ ôèî  ëïòùæÜ ôè÷ óùîäåäåíÛîè÷ ïùòÀ÷,
-                áî äåî åÝîáé  ëåîÜ.
-   ¶ðéóôòÛæåé: Æï óôïéøåÝï Item ëáé ôèî ôòïðïðïéèíÛîè óùîäåäåíÛîè ïùòÀ.
-   Îêïäï÷:     »Üîùíá ëåîÜ÷ ïùòÀ÷, áî è ïùòÀ åÝîáé  ëåîÜ
-*/
+
 {
     QueuePointer TempPtr;
 
