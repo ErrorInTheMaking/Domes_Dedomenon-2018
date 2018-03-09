@@ -1,4 +1,4 @@
-//filename a1f3.c.c
+//filename a1f3.c
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
