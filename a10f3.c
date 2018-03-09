@@ -41,7 +41,7 @@ int main()
 
     artiosperittos(&artioi, &perittoi);
 
-	return 0;
+    return 0;
 }
 
 void artiosperittos(QueueType *Queue1, QueueType *Queue2)
