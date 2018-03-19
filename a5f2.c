@@ -25,7 +25,7 @@ void menu(int *choice);
 
 int main(int argc, char *argv[])
 {
-    StackElementType item ,n, x;
+    StackElementType item ,n, x, x1;
     StackType stack, temp;
     int i;
 
@@ -46,56 +46,82 @@ int main(int argc, char *argv[])
 
     //(a)
 
-    x = stack.Element[stack.Top-1];
-
     Pop(&stack, &item);
     Pop(&stack, &item);
 
-    printf("a->%d\n", x);
+    printf("a->%d\n", item);
 
     //(b)
 
-    x = stack.Element[stack.Top-1];
-    printf("b->%d\n", x);
-
-    //(c)
-
-    for(i=stack.Top;i>StackLimit -n -2;i--)
-        Pop(&stack, &i);
-
-    x = stack.Element[stack.Top];
+   	Pop(&stack, &item);
+   	x = item;   
+	Pop(&stack, &item);
+	x1 = item;
+	
+	printf("b->%d\n", x1);
+	
+	Push(&stack, x1);
+    Push(&stack, x);
+    
+	//(c)
+	
+    for(i=0;i<n;i++){
+		Pop(&stack, &item);
+		x = item;
+	}
     printf("c->%d\n", x);
 
     //(d)
-
-    for(i=0;i<stack.Top;i++)
-        Push(&temp, i);
-
-    for(i=temp.Top;i>stack.Top -n;i--)
-        Pop(&temp, &i);
-    x = temp.Element[temp.Top];
+	
+	for(i=0;i<n;i++){
+		Pop(&stack, &item);
+		x = item;
+		Push(&temp, x);
+	}
     printf("d->%d\n", x);
-
+    
+    while(!EmptyStack(temp)){
+    	Pop(&temp, &item);
+    	Push(&stack, item);
+	}
+	
     //(e)
-
-    for(i=temp.Top;i>0;i--)
-        Pop(&temp, &i);
-    x = temp.Element[temp.Top];
-    printf("e->%d\n", x);
+   while(!EmptyStack(stack)){
+	   Pop(&stack, &item);
+	   x = item;
+	   Push(&temp, item);   	
+	}
+	printf("e->%d\n", x);
+	
+   while(!EmptyStack(temp)){
+	   Pop(&temp, &item);
+	   x = item;
+	   Push(&stack, item);	
+	}
 
     //(f)
-
-    x = temp.Element[temp.Top+2];
-    printf("f->%d\n", x);
-
-    //(g)
+	
+	i = stack.Top;
+    while(stack.Element[i] >= 2){
+    	Pop(&stack, &item);
+    	x = item;
+    	Push(&temp, item);
+    	i--;
+	}
+	printf("f->%d\n", x);
+	
+	while(!EmptyStack(temp)){
+		Pop(&temp, &item);
+		Push(&stack, item);
+	}
+	//(g)
 
     while(!EmptyStack(stack)){
         Pop(&stack, &item);
-        x = stack.Element[item];
+        x = item;
     }
     printf("g->%d\n", x);
-    if(EmptyStack(stack)==TRUE) printf("Empty stack...\n");
+    //if(EmptyStack(stack)==TRUE) printf("Empty stack...\n");
 
     return 0;
 }
@@ -174,3 +200,4 @@ void Pop(StackType *Stack, StackElementType *Item)
     } else
         printf("Empty Stack...");
 }
+
