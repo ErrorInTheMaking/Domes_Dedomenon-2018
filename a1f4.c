@@ -123,7 +123,7 @@ void Search(ListPointer FreePtr, ListPointer List, NodeType Node[NumberOfNodes],
     *PredPtr = NilValue;
     
     if(!EmptyLList(List)){
-        CurrPtr = List;
+        CurrPtr = List; 
         while (CurrPtr != NilValue && stop == FALSE) {
             if(Item <= Node[CurrPtr].Data){
                 *found = (Item == Node[CurrPtr].Data);
