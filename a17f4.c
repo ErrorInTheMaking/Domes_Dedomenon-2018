@@ -35,7 +35,7 @@ int main()
     QueueType AQueue;
     int prisoners, interval, i;
 
-    printf("Arithmos fulakismenon: ");
+    printf("Arithmos fulakismenon: "); 
     scanf("%d", &prisoners);
     printf("Ana posous fulakismenous ginetai ektelesi: ");
     scanf("%d", &interval);
